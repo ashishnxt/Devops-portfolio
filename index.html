@@ -1,0 +1,299 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- icon-link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    .content {
+        position: absolute;
+       
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left; /* Aligns text to the left */
+    }
+    
+    .content h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        margin: 0 0 10px;
+        font-size: 2rem;
+        color: #333;
+    }
+    
+    .content p {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        margin: 0;
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .large .content {
+        position: absolute;
+        left: 2rem;
+        
+    }
+    .big .content{
+        top: 2rem;
+        left: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        .big .content{
+            left: 0rem;
+            top: 0rem;
+        }
+
+        .large .content {
+            left: 0rem;
+            top: 4rem;
+        }
+     
+
+    
+    .content h2 {
+        
+        font-size: 1.5rem;
+    }
+
+    .content p {
+        
+        font-size: 1rem;
+       
+    }
+}
+
+
+
+
+
+
+
+.sliders {
+	display: flex;
+	aspect-ratio: 16 / 9;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+	border-radius: 0.5rem;
+	-ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+	scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sliders::-webkit-scrollbar {
+	display: none;
+}
+
+.sliders img {
+	flex: 1 0 100%;
+	scroll-snap-align: start;
+	object-fit: cover;
+}
+
+.sliders-nav {
+	display: flex;
+	column-gap: 1rem;
+	position: absolute;
+	bottom: 1.25rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+.sliders-nav a {
+	width: 2rem;
+	height: 0.5rem;
+	border-radius: 25%;
+	background-color: #fff;
+	opacity: 0.75;
+	transition: opacity ease 250ms;
+}
+
+.sliders-nav a:hover {
+	opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+<body>
+    <div class="grid-wrapper">
+        <div class="tall">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="wide2" style="background-color: antiquewhite; border-radius: 20px;">
+            <div class="content" style="position: absolute; bottom: 0rem; " >
+                <h2>Heading is a paragraph on the left side of the box.</h2>
+            </div>
+        </div>
+
+
+        <div class="box" style="background-color: #ffffff; border-radius: 20px;">
+            <div class="content" >
+                <h2>Heading</h2>
+                <p>This is a paragraph on the left side of the box. The layout is responsive, and the content adjusts for different screen sizes.</p>
+            </div>
+        </div>
+
+
+        <div class="box"  style="background-color: #ffffff; border-radius: 20px;">
+            <div class="social-icons">
+                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="#" aria-label="Medium"><i class="fab fa-medium-m"></i></a>
+            </div>
+        </div>
+
+
+        <div class="big" style="background-color: antiquewhite; border-radius: 20px;">
+            <div class="content">
+                <h2>Heading is a paragraph on.</h2>
+                <p>The box. The layout is responsive, and the content adjusts for diff</p>
+                <p>The box. The layout is respons the content adjusts for diff</p>
+                <p>The box. The layosponsive, and justs for diff</p>
+            </div>
+        </div>
+
+
+        <div class="wide" style="background-color: antiquewhite; border-radius: 20px; ">
+            <div class="testimonials">
+                <h2>Testimonials </h2> 
+                <div class="testimonial-text active" id="testimonialText">
+                    Stefan has consistently helped us to move the needle ovotion expertise. Any team should consider themselves lucky to work with Stefan!
+                </div>
+                <div class="testimonial-author active" id="testimonialAuthor">
+                    Lacey Gerard
+                </div>
+                <div class="arrows">
+                    <span class="arrow" onclick="prevTestimonial()">&#8592;</span>
+                    <span class="arrow" onclick="nextTestimonial()">&#8594;</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="large"style="background-color: antiquewhite; border-radius: 20px;">
+            <div class="content" >
+                <h2>Heading</h2>
+                <p>The box. The layout is responsive, and the content adjusts for diff</p>
+                <p>The box. The layout is respons the content adjusts for diff</p>
+                <p>The box. The layosponsive, and justs for diff</p>
+            </div>
+        </div>
+
+
+        <div class="s-large">
+
+
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="box2">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="box2">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="large">
+            <!-- <div class="sliders-wrapper">
+                <div class="sliders">
+                    <img id="slide-1" src="https://images.unsplash.com/photo-1656464868371-602be27fd4c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary orange planet in space" />
+                    <img id="slide-2" src="https://images.unsplash.com/photo-1657586640569-4a3d4577328c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary green planet in space" />
+                    <img id="slide-3" src="https://images.unsplash.com/photo-1656077217715-bdaeb06bd01f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary blue planet in space" />
+                </div>
+                <div class="sliders-nav">
+                    <a href="#slide-1"></a>
+                    <a href="#slide-2"></a>
+                    <a href="#slide-3"></a>
+                </div>
+            </div> -->
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="wide">
+            
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="l-big">
+           
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="l-big2">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="l-big">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="l-big2">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="wide">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="large">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="l-big2">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="l-big">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+        <div class="slim">
+            <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
+        </div>
+
+
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>
