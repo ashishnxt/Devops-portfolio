@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Grid Based Responsive Sliders</title>
+  <title>Grid Based Responsive Sliders with Overlay</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -43,11 +43,42 @@
       height: 100%;
     }
 
+    /* Make slide relative for overlay */
     .slide {
+      position: relative;
       flex: 0 0 100%;
       width: 100%;
-      object-fit: cover;
       height: 100%;
+    }
+
+    /* Image inside the slide */
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Overlay content */
+    .slide-overlay {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      max-width: 250px;
+    }
+
+    .slide-overlay h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .slide-overlay p {
+      margin: 5px 0 0;
+      font-size: 14px;
     }
 
     /* Buttons */
@@ -78,7 +109,7 @@
       right: 10px;
     }
 
-    /* Dots INSIDE */
+    /* Dots inside */
     .dots-container {
       position: absolute;
       bottom: 10px;
@@ -125,7 +156,13 @@
   <div class="slider-wrapper">
     <div class="slider-container" data-slider="1">
       <div class="slider-track">
-        <img class="slide" src="https://picsum.photos/id/1015/800/400" alt="Slide 1">
+        <div class="slide">
+          <img src="https://picsum.photos/id/1015/800/400" alt="Slide 1">
+          <div class="slide-overlay">
+            <h2>First Slider</h2>
+            <p>Subline description here.</p>
+          </div>
+        </div>
         <img class="slide" src="https://picsum.photos/id/1016/800/400" alt="Slide 2">
         <img class="slide" src="https://picsum.photos/id/1018/800/400" alt="Slide 3">
       </div>
@@ -139,7 +176,13 @@
   <div class="slider-wrapper">
     <div class="slider-container" data-slider="2">
       <div class="slider-track">
-        <img class="slide" src="https://picsum.photos/id/1020/800/400" alt="Slide 1">
+        <div class="slide">
+          <img src="https://picsum.photos/id/1020/800/400" alt="Slide 1">
+          <div class="slide-overlay">
+            <h2>Second Slider</h2>
+            <p>Another subline here.</p>
+          </div>
+        </div>
         <img class="slide" src="https://picsum.photos/id/1021/800/400" alt="Slide 2">
         <img class="slide" src="https://picsum.photos/id/1022/800/400" alt="Slide 3">
       </div>
@@ -153,7 +196,13 @@
   <div class="slider-wrapper">
     <div class="slider-container" data-slider="3">
       <div class="slider-track">
-        <img class="slide" src="https://picsum.photos/id/1025/800/400" alt="Slide 1">
+        <div class="slide">
+          <img src="https://picsum.photos/id/1025/800/400" alt="Slide 1">
+          <div class="slide-overlay">
+            <h2>Third Slider</h2>
+            <p>Subline text here.</p>
+          </div>
+        </div>
         <img class="slide" src="https://picsum.photos/id/1026/800/400" alt="Slide 2">
         <img class="slide" src="https://picsum.photos/id/1027/800/400" alt="Slide 3">
       </div>
