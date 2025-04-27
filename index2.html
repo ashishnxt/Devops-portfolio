@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid Based Responsive Sliders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* GRID container */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      height: 100%;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+    }
+
+    /* Buttons */
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 2;
+      transition: background 0.3s;
+    }
+
+    .slider-button:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    /* Dots INSIDE */
+    .dots-container {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .dot {
+      height: 8px;
+      width: 8px;
+      margin: 0 4px;
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: #fff;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .slider-button {
+        padding: 8px;
+        font-size: 16px;
+      }
+      .dot {
+        height: 6px;
+        width: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="grid-container">
+
+  <!-- SLIDER 1 -->
+  <div class="slider-wrapper">
+    <div class="slider-container" data-slider="1">
+      <div class="slider-track">
+        <img class="slide" src="https://picsum.photos/id/1015/800/400" alt="Slide 1">
+        <img class="slide" src="https://picsum.photos/id/1016/800/400" alt="Slide 2">
+        <img class="slide" src="https://picsum.photos/id/1018/800/400" alt="Slide 3">
+      </div>
+      <button class="slider-button prev">&#10094;</button>
+      <button class="slider-button next">&#10095;</button>
+      <div class="dots-container"></div>
+    </div>
+  </div>
+
+  <!-- SLIDER 2 -->
+  <div class="slider-wrapper">
+    <div class="slider-container" data-slider="2">
+      <div class="slider-track">
+        <img class="slide" src="https://picsum.photos/id/1020/800/400" alt="Slide 1">
+        <img class="slide" src="https://picsum.photos/id/1021/800/400" alt="Slide 2">
+        <img class="slide" src="https://picsum.photos/id/1022/800/400" alt="Slide 3">
+      </div>
+      <button class="slider-button prev">&#10094;</button>
+      <button class="slider-button next">&#10095;</button>
+      <div class="dots-container"></div>
+    </div>
+  </div>
+
+  <!-- SLIDER 3 -->
+  <div class="slider-wrapper">
+    <div class="slider-container" data-slider="3">
+      <div class="slider-track">
+        <img class="slide" src="https://picsum.photos/id/1025/800/400" alt="Slide 1">
+        <img class="slide" src="https://picsum.photos/id/1026/800/400" alt="Slide 2">
+        <img class="slide" src="https://picsum.photos/id/1027/800/400" alt="Slide 3">
+      </div>
+      <button class="slider-button prev">&#10094;</button>
+      <button class="slider-button next">&#10095;</button>
+      <div class="dots-container"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Initialize all sliders
+  document.querySelectorAll('.slider-container').forEach((sliderContainer) => {
+    const track = sliderContainer.querySelector('.slider-track');
+    const slides = sliderContainer.querySelectorAll('.slide');
+    const prevBtn = sliderContainer.querySelector('.prev');
+    const nextBtn = sliderContainer.querySelector('.next');
+    const dotsContainer = sliderContainer.querySelector('.dots-container');
+    let currentIndex = 0;
+
+    function updateSlider() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateDots();
+    }
+
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach(dot => dot.classList.remove('active'));
+      if (dots[currentIndex]) {
+        dots[currentIndex].classList.add('active');
+      }
+    }
+
+    function createDots() {
+      slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateSlider();
+        });
+        dotsContainer.appendChild(dot);
+      });
+      updateDots();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+      updateSlider();
+    });
+
+    createDots();
+  });
+</script>
+
+</body>
+</html>

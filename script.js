@@ -84,4 +84,53 @@ function nextTestimonial() {
     currentIndex = (currentIndex === testimonials.length - 1) ? 0 : currentIndex + 1;
     updateTestimonial();
 }
-// ---------------------------------------------------------------------------------------------------------- 
+// ---------------------------------------------------silder------------------------------------------------------- 
+
+
+  // Initialize all sliders
+  document.querySelectorAll('.slider-container').forEach((sliderContainer) => {
+    const track = sliderContainer.querySelector('.slider-track');
+    const slides = sliderContainer.querySelectorAll('.slide');
+    const prevBtn = sliderContainer.querySelector('.prev');
+    const nextBtn = sliderContainer.querySelector('.next');
+    const dotsContainer = sliderContainer.querySelector('.dots-container');
+    let currentIndex = 0;
+
+    function updateSlider() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateDots();
+    }
+
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach(dot => dot.classList.remove('active'));
+      if (dots[currentIndex]) {
+        dots[currentIndex].classList.add('active');
+      }
+    }
+
+    function createDots() {
+      slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateSlider();
+        });
+        dotsContainer.appendChild(dot);
+      });
+      updateDots();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+      updateSlider();
+    });
+
+    createDots();
+  });
