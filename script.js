@@ -88,6 +88,7 @@ function nextTestimonial() {
 
 
   // Initialize all sliders
+  
   document.querySelectorAll('.slider-container').forEach((sliderContainer) => {
     const track = sliderContainer.querySelector('.slider-track');
     const slides = sliderContainer.querySelectorAll('.slide');

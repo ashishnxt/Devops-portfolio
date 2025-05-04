@@ -5,139 +5,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./slider.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- icon-link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<style>
-    .content {
-        position: absolute;
-       
-        padding: 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: left; /* Aligns text to the left */
-    }
-    
-    .content h2 {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        margin: 0 0 10px;
-        font-size: 2rem;
-        color: #333;
-    }
-    
-    .content p {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
-        margin: 0;
-        font-size: 1rem;
-        color: #555;
-    }
 
-    .large .content {
-        position: absolute;
-        left: 2rem;
-        
-    }
-    .big .content{
-        top: 2rem;
-        left: 2rem;
-    }
-
-    @media (max-width: 768px) {
-        .big .content{
-            left: 0rem;
-            top: 0rem;
-        }
-
-        .large .content {
-            left: 0rem;
-            top: 4rem;
-        }
-     
-
-    
-    .content h2 {
-        
-        font-size: 1.5rem;
-    }
-
-    .content p {
-        
-        font-size: 1rem;
-       
-    }
-}
-
-
-
-
-
-
-
-.sliders {
-	display: flex;
-	aspect-ratio: 16 / 9;
-	overflow-x: auto;
-	scroll-snap-type: x mandatory;
-	scroll-behavior: smooth;
-	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-	border-radius: 0.5rem;
-	-ms-overflow-style: none; /* Hide scrollbar IE and Edge */
-	scrollbar-width: none; /* Hide scrollbar Firefox */
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.sliders::-webkit-scrollbar {
-	display: none;
-}
-
-.sliders img {
-	flex: 1 0 100%;
-	scroll-snap-align: start;
-	object-fit: cover;
-}
-
-.sliders-nav {
-	display: flex;
-	column-gap: 1rem;
-	position: absolute;
-	bottom: 1.25rem;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 1;
-}
-
-.sliders-nav a {
-	width: 2rem;
-	height: 0.5rem;
-	border-radius: 25%;
-	background-color: #fff;
-	opacity: 0.75;
-	transition: opacity ease 250ms;
-}
-
-.sliders-nav a:hover {
-	opacity: 1;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </style>
 <body>
+   
     <div class="grid-wrapper">
         <div class="tall">
             <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
@@ -237,7 +112,6 @@
 
 
         <div class="l-big">
-             <!-- SLIDER 2 -->
              <div class="slider-wrapper">
                 <div class="slider-container" data-slider="1">
                   <div class="slider-track">
@@ -259,13 +133,10 @@
 
   
 
-            <!-- <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" /> -->
         </div>
 
 
         <div class="l-big2">
-            <!-- <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" /> -->
-               <!-- SLIDER 1 -->
                <div class="slider-wrapper">
                 <div class="slider-container" data-slider="1">
                   <div class="slider-track">
@@ -284,7 +155,6 @@
                   <div class="dots-container"></div>
                 </div>
               </div>
-
         </div>
 
 <!-- 
@@ -331,6 +201,8 @@
 
 
     </div>
+    
+
 </body>
 <script src="./script.js"></script>
 <script src="./slider.js"></script>
